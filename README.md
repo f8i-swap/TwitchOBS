@@ -14,4 +14,5 @@ In the search bar, it should show a similar URL as the one below.
 
 ![Image](https://cdn.discordapp.com/attachments/906301382347358252/916761316063051846/unknown.png)
 
-In order to modify what streamer this displays, add `?user=streamer_name` to the end of the URL.
+In order to modify what streamer this displays, add `?user=streamer_name` to the end of the URL. <br>
+Now that you have the URL, you can begin to use the add-on in OBS
