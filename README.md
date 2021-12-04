@@ -5,7 +5,7 @@
 ### How To Setup
 
 Download the file, and open it in any text editor (e.g. Notepad). <br>
-Scroll down until you see the line in the image below, and replace `YOUR CLIENT ID HERE` with your Twitch client ID.
+Scroll down until you see the line in the image below, and replace `YOUR CLIENT ID HERE` with your Twitch Client ID.
 
 ![Image](https://cdn.discordapp.com/attachments/906301382347358252/916760004151877673/unknown.png)
 
