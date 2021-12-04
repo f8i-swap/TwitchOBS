@@ -17,7 +17,7 @@ In the search bar, it should show a similar URL as the one below.
 In order to modify what streamer this displays, add `?user=streamer_name` to the end of the URL. <br>
 Now that you have the URL, copy it or save it somewhere so you can begin to use the add-on in OBS
 
-### How To Use#
+### How To Use
 
 Once you have opened OBS, add a browser source to whatever scene you want this added to. <br>
 Click `OK`, and then in the `URL` section paste in the URL you copied earlier. Click `OK` again, and it should be added to your stream! <br>
