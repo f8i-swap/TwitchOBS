@@ -21,4 +21,10 @@ Now that you have the URL, copy it or save it somewhere so you can begin to use 
 
 Once you have opened OBS, add a browser source to whatever scene you want this added to. <br>
 Click `OK`, and then in the `URL` section paste in the URL you copied earlier. Click `OK` again, and it should be added to your stream! <br>
+However, the bright green background is still there. To remove this, first select the source and click `Filters`. <br>
+Then add an Effect Filter and select `Chroma Key`. To get the best results, change the setting to the image below.
+
+![Image](https://cdn.discordapp.com/attachments/912689470988496926/916753220959879188/unknown.png)
+
+After that, click close and you're done! <br>
 If you ever want to edit the streamer it shows, click on the source and then click `Properties` and edit the URL.
