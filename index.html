@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<title>Test OBS Extension</title>
+<link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
+    </head>
+    <style>
+        @font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/inter/v7/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZJhiI2B.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: table;
+    background-color: #00ff00;
+    color: white;
+}
+.content {
+    width:75%;
+    margin: auto;
+  padding: 10px;
+  text-align: center;
+  padding: 70px 0;
+}
+    </style>
+<body onload="getUserInfo()">
+    <div class="content"><br>
+<img id="pfp" style="border-radius: 50%; width: 125px; height: 125px; border: 3px solid #A970FF;" src="placeholder"><img><br>
+<label id="streamer" style="font-family: Inter; vertical-align: middle;  font-size: 64px;"><b>Loading...</b></label><br><br>
+<label id="followers" style="font-family: Inter; font-size: 32px;">Loading...</label><br>
+<label id="latestfollower" style="font-family: Inter; font-size: 32px;">Loading...</label><br><br>
+<label id="status" style="font-family: Inter; font-size: 25px;"></label><br>
+<label style="font-family: Inter; font-size: 32px;"></label><br>
+</div>
+<script>
+
+function sleep(milisec) {
+   // #1F1F23
+    return new Promise(resolve => {
+        setTimeout(() => { resolve('') }, milisec);
+    })
+}
+
+
+    async function getUserInfo(){
+    let clientid = "YOUR CLIENT ID HERE"
+    let user = window.location.href.split("?user=")[1]
+      
+      
+      var response = await fetch("https://api.twitch.tv/helix/users?login=" + user, {
+  "headers": {
+    "accept": "application/vnd.twitchtv.v5+json",
+    "accept-language": "en-US,en;q=0.9,ko;q=0.8,en-GB;q=0.7",
+    "client-id": clientid
+  },
+  "method": "GET"
+});     
+    const data = await response.json();
+
+    for (let i = 0; i < 100000; i++) {
+    
+
+    var inforesponse = await fetch("https://api.twitch.tv/kraken/channels/" + data.data[0].id, {
+  "headers": {
+    "accept": "application/vnd.twitchtv.v5+json",
+    "accept-language": "en-US,en;q=0.9,ko;q=0.8,en-GB;q=0.7",
+    "client-id": clientid
+  },
+  "method": "GET"
+});
+      
+    infodata = await inforesponse.json();
+
+    var followresponse = await fetch("https://api.twitch.tv/helix/users/follows?first=100&to_id=" + data.data[0].id + "&cacheBuster=1638388148876", {
+  "headers": {
+    "accept": "application/vnd.twitchtv.v5+json",
+    "accept-language": "en-US,en;q=0.9,ko;q=0.8,en-GB;q=0.7",
+    "client-id": clientid
+  },
+  "method": "GET"
+});
+      
+    followdata = await followresponse.json();
+
+    console.log(infodata)
+    document.getElementById("streamer").innerHTML = infodata.name
+    document.getElementById("followers").innerHTML = "Total Followers: " + infodata.followers
+    document.getElementById("latestfollower").innerHTML = "Latest Follower:  " + followdata.data[0].from_name
+    document.getElementById("status").innerHTML = "<i>" + infodata.description + "</i>"
+    document.getElementById("pfp").src = infodata.logo
+await sleep(20000)
+}
+}
+</script>
+</body>
+</html>
