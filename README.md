@@ -26,5 +26,5 @@ Then add an Effect Filter and select `Chroma Key`. To get the best results, chan
 
 ![Image](https://cdn.discordapp.com/attachments/912689470988496926/916753220959879188/unknown.png)
 
-After that, click close and you're done! <br>
+After that, click `Close` and you're done! <br>
 If you ever want to edit the streamer it shows, click on the source and then click `Properties` and edit the URL.
