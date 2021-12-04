@@ -13,3 +13,5 @@ Once that is done, save the file and open it (it should open up in your default 
 In the search bar, it should show a similar URL as the one below.
 
 ![Image](https://cdn.discordapp.com/attachments/906301382347358252/916761316063051846/unknown.png)
+
+In order to modify what streamer this displays, add `?user=streamer_name` to the end of the URL.
